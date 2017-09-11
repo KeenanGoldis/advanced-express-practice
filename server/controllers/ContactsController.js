@@ -1,14 +1,42 @@
-import contacts from "./contacts"
+import contacts from "./contacts";
+import ContactModel from "../models/ContactModel.js"
 
 export function list(request, response) {
- return response.json([]);
+  let promise = ContactModel.find({}).exec()
+  promise.then(users => {
+    return response.json(users);
+  });
 }
+
 export function show(request, response) {
- return response.json({theId: request.params.id});
+  let contactId = request.params.id;
+
+  let singleContact = contacts.find(function(contact){
+    return contactId === contact._id;
+  })
+ return response.json(singleContact);
 }
+
 export function create(request, response) {
- return response.json({});
-}
+   const contact = new ContactModel({
+     name: request.body.firstName,
+     occupation: request.body.occupation,
+     avatar: request.body.avatar,
+   });
+   contact.save()
+   .then(user => {
+     return response.json(user);
+   });
+ };
+
+
+
+
+
+
+
+
+
 export function update(request, response) {
  return response.json({theId: request.params.id});
 }

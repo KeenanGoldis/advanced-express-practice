@@ -1,14 +1,35 @@
 import comments from "./comments";
+import CommentsModel from "../models/CommentModel.js"
 
 export function list(request, response) {
- return response.json([]);
+  ContactModel.find({}).exec()
+  .then(comments => {
+    return response.json(comments);
+  });
 }
+
 export function show(request, response) {
- return response.json({theId: request.params.id});
+  let commentId = request.params.id;
+
+  let singleComment = comments.find(function(comment){
+    return commentId === comment.id;
+  })
+ return response.json(singleComment);
 }
+
 export function create(request, response) {
- return response.json({});
-}
+  const comment = new CommentModel({
+    body: request.body.body
+  })
+  comment.save()
+  .then(comment => {
+    return response.json(comment)
+  });
+};
+
+
+
+
 export function update(request, response) {
  return response.json({theId: request.params.id});
 }

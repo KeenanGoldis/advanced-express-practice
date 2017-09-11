@@ -5,7 +5,7 @@ app.use(contactRoutes);
 
 import mongoose from "mongoose";
 mongoose.Promise = global.Promise;
-mongoose.connect("mongodb://localhost");
+mongoose.connect("mongodb://localhost/express-practice");
 
 
 const app = express();
@@ -17,6 +17,10 @@ app.use(ProductRoutes);
 
 app.get("/",function(request,response){
   return response.json({hello:"world"});
+})
+
+app.post("/", function (request, response) {
+  return response.json({hello: "post world"})
 })
 
 // app.get("/contacts",function(request,response){
@@ -38,6 +42,25 @@ app.get("/",function(request,response){
 app.get("/contacts/:id",function(request,response){
   return response.json({})
 })
+
+app.post("/contacts", function (request, response) {
+  return response.json({contacts})
+})
+
+app.post("/vehicles", function (request, response) {
+  return response.json({vehicles})
+})
+
+app.post("/comments", function (request, response) {
+  return response.json({comments})
+})
+
+app.post("/products", function (request, response){
+  return response.json({products})
+}
+
+
+
 
 const port = process.env.PORT || 3001;
 app.listen(port, () => {
