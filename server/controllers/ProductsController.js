@@ -1,8 +1,9 @@
-import products from "./products";
+import products from "../products";
+import ProductModel from "../models/ProductModel.js";
 
 export function list(request, response) {
-  ContactModel.find({}).exec()
-  promise.then(products => {
+  ProductModel.find({}).exec()
+  .then(products => {
     return response.json(products);
   });
 }
@@ -11,17 +12,17 @@ export function show(request, response) {
   let productId = request.params.id;
 
   let singleProduct = products.find(function(product){
-    return productId === product._id;
+    return productId === product.id;
   })
  return response.json(singleProduct);
 }
 
 export function create(request, response) {
    const product = new ProductModel({
-     name: request.body.firstName,
+     name: request.body.name,
      description: request.body.description
    });
-   contact.save()
+   product.save()
    .then(product => {
      return response.json(product);
    });

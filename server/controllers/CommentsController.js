@@ -1,8 +1,8 @@
-import comments from "./comments";
-import CommentsModel from "../models/CommentModel.js"
+import comments from "../comments";
+import CommentModel from "../models/CommentModel.js"
 
 export function list(request, response) {
-  ContactModel.find({}).exec()
+  CommentModel.find({}).exec()
   .then(comments => {
     return response.json(comments);
   });
@@ -26,9 +26,6 @@ export function create(request, response) {
     return response.json(comment)
   });
 };
-
-
-
 
 export function update(request, response) {
  return response.json({theId: request.params.id});

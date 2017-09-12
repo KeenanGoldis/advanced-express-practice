@@ -1,9 +1,8 @@
-import contacts from "./contacts";
 import ContactModel from "../models/ContactModel.js"
 
 export function list(request, response) {
-  let promise = ContactModel.find({}).exec()
-  promise.then(users => {
+  ContactModel.find({}).exec()
+  .then(users => {
     return response.json(users);
   });
 }
@@ -19,7 +18,7 @@ export function show(request, response) {
 
 export function create(request, response) {
    const contact = new ContactModel({
-     name: request.body.firstName,
+     name: request.body.name,
      occupation: request.body.occupation,
      avatar: request.body.avatar,
    });
@@ -28,13 +27,6 @@ export function create(request, response) {
      return response.json(user);
    });
  };
-
-
-
-
-
-
-
 
 
 export function update(request, response) {

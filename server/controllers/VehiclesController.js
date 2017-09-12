@@ -1,5 +1,4 @@
-// import vehicle from "./vehicles";
-import VehicleModel from "../models.VehicleModel.js"
+import VehicleModel from "../models/VehicleModel.js"
 
 export function list(request, response) {
   VehicleModel.find({}).exec()
@@ -23,29 +22,11 @@ export function create(request, response) {
     make: request.body.make,
     model: request.body.model,
   });
-  contact.save()
-  .then(user => {
-    return response.json(user);
+  vehicle.save()
+  .then(vehicle => {
+    return response.json(vehicle);
   });
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 export function update(request, response) {

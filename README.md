@@ -42,8 +42,8 @@ At this point, the web page should operate in the same manner as the redux fetch
 * Create the mongoose models for Contact, Vehicle, Comment Product
 <!-- * CommentModel - body -->
 <!-- * ContactModel - name, occupation, avatar -->
-* VehicleModel - year, make, model
-* ProductModel - name, description
+<!-- * VehicleModel - year, make, model -->
+<!-- * ProductModel - name, description -->
 * Change the code in the controllers to use the Models instead of hard coded arrays
 
 # Part 5 - Client
@@ -117,7 +117,7 @@ At this point, the web page should operate in the same manner as the redux fetch
 
 
 ### Points
-* Base - 10pts
+<!-- * Base - 10pts -->
 * Data shows in the page for the Lists - 5pts each (20pts)
 * Creating data works - 10pts each (40pts)
 * Can view one item at a time by id - 30pts

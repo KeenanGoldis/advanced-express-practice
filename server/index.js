@@ -1,7 +1,9 @@
 import express from "express";
 import bodyParser from "body-parser";
 import ContactRoutes from "./routes/ContactRoutes";
-app.use(contactRoutes);
+import VehicleRoutes from "./routes/VehicleRoutes";
+import CommentRoutes from "./routes/CommentRoutes";
+import ProductRoutes from "./routes/ProductRoutes";
 
 import mongoose from "mongoose";
 mongoose.Promise = global.Promise;
@@ -23,43 +25,13 @@ app.post("/", function (request, response) {
   return response.json({hello: "post world"})
 })
 
-// app.get("/contacts",function(request,response){
-//   return response.json({contacts})
+// app.get("/contacts/:id",function(request,response){
+//   return response.json({})
 // })
-
-// app.get("/vehicles",function(request,response){
-//   return response.json({vehicles})
-// })
-
-// app.get("/comments",function(request,response){
-//   return response.json({comments})
-// })
-
-// app.get("/products",function(request,response){
+//
+// app.post("/products", function (request, response){
 //   return response.json({products})
 // })
-
-app.get("/contacts/:id",function(request,response){
-  return response.json({})
-})
-
-app.post("/contacts", function (request, response) {
-  return response.json({contacts})
-})
-
-app.post("/vehicles", function (request, response) {
-  return response.json({vehicles})
-})
-
-app.post("/comments", function (request, response) {
-  return response.json({comments})
-})
-
-app.post("/products", function (request, response){
-  return response.json({products})
-}
-
-
 
 
 const port = process.env.PORT || 3001;
